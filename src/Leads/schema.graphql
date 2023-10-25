@@ -1,0 +1,25 @@
+﻿schema {
+  query: Query
+}
+
+type ConversationModel {
+  leadId: UUID!
+  lead: LeadModel
+}
+
+type LeadModel {
+  id: UUID!
+  name: String
+}
+
+type Query {
+  conversationByLeadId(leadId: UUID!): ConversationModel!
+  leads: [LeadModel!]!
+}
+
+"The `@specifiedBy` directive is used within the type system definition language to provide a URL for specifying the behavior of custom scalar definitions."
+directive @specifiedBy("The specifiedBy URL points to a human-readable specification. This field will only read a result for scalar types." url: String!) on SCALAR
+
+directive @tag(name: String!) repeatable on SCHEMA | SCALAR | OBJECT | FIELD_DEFINITION | ARGUMENT_DEFINITION | INTERFACE | UNION | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
+
+scalar UUID @specifiedBy(url: "https:\/\/tools.ietf.org\/html\/rfc4122")

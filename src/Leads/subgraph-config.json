@@ -1,0 +1,6 @@
+{
+  "subgraph": "leads",
+  "http": {
+    "baseAddress": "http://localhost:5000/graphql"
+  }
+}
