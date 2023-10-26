@@ -14,6 +14,7 @@ type LeadModel {
 
 type Query {
   conversationByLeadId(leadId: UUID!): ConversationModel!
+  conversationModelByLeadId(leadId: UUID!): ConversationModel!
   leads: [LeadModel!]!
 }
 
