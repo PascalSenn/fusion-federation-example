@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Leads;
+namespace Customers;
 
 public class Startup
 {
@@ -20,7 +20,6 @@ public class Startup
     {
         services
             .AddGraphQLServer()
-            .AddTypeExtension<LeadModelExtensions>()
             .AddQueryType<Query>();
     }
 

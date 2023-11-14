@@ -1,0 +1,16 @@
+﻿schema {
+  query: Query
+}
+
+type Customer {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+type Query {
+  customerById(id: ID!): Customer!
+  customerByIds(ids: [ID!]!): [Customer!]!
+}
+
+directive @tag(name: String!) repeatable on SCHEMA | SCALAR | OBJECT | FIELD_DEFINITION | ARGUMENT_DEFINITION | INTERFACE | UNION | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION

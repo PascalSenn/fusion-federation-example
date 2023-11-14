@@ -6,16 +6,13 @@ type Customer {
   id: ID!
 }
 
-type LeadModel {
-  id: ID!
-  name: String
-  client: Customer!
+type Estimate {
+  name: String!
+  customer: Customer!
 }
 
 type Query {
-  leads: [LeadModel!]!
-  leadModelById(id: ID!): LeadModel!
-  leadModelsById(ids: [ID!]!): [LeadModel!]!
+  estimate(id: ID!): Estimate!
 }
 
 "The `@specifiedBy` directive is used within the type system definition language to provide a URL for specifying the behavior of custom scalar definitions."

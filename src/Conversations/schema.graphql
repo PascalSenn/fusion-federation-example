@@ -3,8 +3,12 @@
 }
 
 type ConversationModel {
-  leadId: UUID!
-  conversation: String!
+  conversation: String
+  lead: LeadModel!
+}
+
+type LeadModel {
+  id: ID!
 }
 
 type Query {

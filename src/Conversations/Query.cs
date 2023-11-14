@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using HotChocolate;
+using HotChocolate.Types;
+using HotChocolate.Types.Relay;
 
 namespace Conversations;
 
@@ -24,3 +27,12 @@ public class ConversationModel
 
     public string? Conversation { get; set; }
 }
+
+[ExtendObjectType<ConversationModel>()]
+public class ConversationModelExtensions
+{
+    [BindMember(nameof(ConversationModel.LeadId))]
+    public LeadModel GetLead([Parent] ConversationModel parent) => new(parent.LeadId);
+}
+
+public record LeadModel([property: ID] Guid Id);

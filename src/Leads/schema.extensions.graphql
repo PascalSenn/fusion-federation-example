@@ -1,3 +1,0 @@
-extend type Query {
-    conversationByLeadId(leadId: UUID! @is(field:"leadId")): ConversationModel
-}

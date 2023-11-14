@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Bogus" Version="34.0.2"/>
         <PackageReference Include="HotChocolate.AspNetCore" Version="14.0.0-p.9"/>
         <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="14.0.0-p.9"/>
         <PackageReference Include="HotChocolate.AspNetCore.CommandLine" Version="14.0.0-p.9"/>

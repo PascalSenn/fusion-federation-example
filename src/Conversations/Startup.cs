@@ -20,6 +20,7 @@ namespace Conversations
         {
             services
                 .AddGraphQLServer()
+                .AddTypeExtension<ConversationModelExtensions>()
                 .AddQueryType<Query>();
         }
 
@@ -33,10 +34,7 @@ namespace Conversations
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGraphQL();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapGraphQL(); });
         }
     }
 }

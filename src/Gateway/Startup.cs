@@ -21,7 +21,8 @@ namespace Gateway
             services.AddHttpClient();
             services
                 .AddFusionGatewayServer()
-                .ConfigureFromFile("gateway.fgp");
+                .ConfigureFromFile("gateway.fgp")
+                .CoreBuilder.ModifyRequestOptions(x => x.IncludeExceptionDetails = true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,10 +35,7 @@ namespace Gateway
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGraphQL();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapGraphQL(); });
         }
     }
 }
