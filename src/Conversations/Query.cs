@@ -12,10 +12,12 @@ public class Query
     {
         new ConversationModel()
         {
+            LeadId = Guid.NewGuid(),
             Conversation = "Hello, how are you?",
         },
         new ConversationModel()
         {
+            LeadId = null,
             Conversation = "I'm fine, thank you.",
         }
     };
@@ -23,16 +25,17 @@ public class Query
 
 public class ConversationModel
 {
-    public Guid LeadId { get; set; }
+    public Guid? LeadId { get; set; }
 
     public string? Conversation { get; set; }
 }
 
-[ExtendObjectType<ConversationModel>()]
+[ExtendObjectType<ConversationModel>]
 public class ConversationModelExtensions
 {
     [BindMember(nameof(ConversationModel.LeadId))]
-    public LeadModel GetLead([Parent] ConversationModel parent) => new(parent.LeadId);
+    public LeadModel? GetLead([Parent] ConversationModel parent)
+        => parent.LeadId is null ? null : new(parent.LeadId.Value);
 }
 
 public record LeadModel([property: ID] Guid Id);

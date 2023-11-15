@@ -44,12 +44,12 @@ public class LeadModel
 
     public string? Name { get; set; }
 
+    [ID<Customer>]
     public Guid CustomerId { get; set; }
 }
 
 [ExtendObjectType<LeadModel>]
 public class LeadModelExtensions
 {
-    [BindMember(nameof(LeadModel.CustomerId))]
     public Customer GetClient([Parent] LeadModel parent) => new Customer(parent.CustomerId);
 }

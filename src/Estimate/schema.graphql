@@ -8,6 +8,7 @@ type Customer {
 
 type Estimate {
   name: String!
+  clientId: UUID!
   customer: Customer!
 }
 

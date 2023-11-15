@@ -4,7 +4,7 @@
 
 type ConversationModel {
   conversation: String
-  lead: LeadModel!
+  lead: LeadModel
 }
 
 type LeadModel {

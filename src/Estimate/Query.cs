@@ -26,7 +26,6 @@ public sealed class Estimate
 [ExtendObjectType<Estimate>]
 public class EstimateExtensions
 {
-    [BindMember(nameof(Estimate.ClientId))]
     public Customer GetCustomer([Parent] Estimate parent) => new(parent.ClientId);
 }
 
